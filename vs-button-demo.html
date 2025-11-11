@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VsButton 獨立 CSS/JS 範例</title>
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- VsButton CSS -->
+  <link rel="stylesheet" href="vs-button.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1.1em;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      color: #444;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      color: #555;
+      margin: 30px 0 15px;
+      font-size: 1.3em;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .code-block {
+      background: #f8f8f8;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 15px 0;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      color: #333;
+    }
+
+    .demo-section {
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 4px;
+      margin: 15px 0;
+    }
+
+    .color-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .note {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .note strong {
+      color: #1976d2;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VsButton 獨立 CSS/JS 範例</h1>
+    <p class="subtitle">無需 Vue.js，純 HTML + CSS + JS 即可使用的按鈕元件</p>
+
+    <!-- Basic Types -->
+    <section>
+      <h2>1. 基本按鈕類型</h2>
+
+      <h3>Filled（填滿）</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-filled vs-button-primary">Primary</button>
+        <button class="vs-button vs-button-filled vs-button-success">Success</button>
+        <button class="vs-button vs-button-filled vs-button-danger">Danger</button>
+        <button class="vs-button vs-button-filled vs-button-warning">Warning</button>
+        <button class="vs-button vs-button-filled vs-button-dark">Dark</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-filled vs-button-primary"&gt;Primary&lt;/button&gt;</code>
+      </div>
+
+      <h3>Border（邊框）</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-border vs-button-primary">Primary</button>
+        <button class="vs-button vs-button-border vs-button-success">Success</button>
+        <button class="vs-button vs-button-border vs-button-danger">Danger</button>
+        <button class="vs-button vs-button-border vs-button-warning">Warning</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-border vs-button-primary"&gt;Primary&lt;/button&gt;</code>
+      </div>
+
+      <h3>Flat（扁平）</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-flat vs-button-primary">Primary</button>
+        <button class="vs-button vs-button-flat vs-button-success">Success</button>
+        <button class="vs-button vs-button-flat vs-button-danger">Danger</button>
+        <button class="vs-button vs-button-flat vs-button-warning">Warning</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-flat vs-button-primary"&gt;Primary&lt;/button&gt;</code>
+      </div>
+
+      <h3>Line（線條）</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-line vs-button-primary">Primary</button>
+        <button class="vs-button vs-button-line vs-button-success">Success</button>
+        <button class="vs-button vs-button-line vs-button-danger">Danger</button>
+        <button class="vs-button vs-button-line vs-button-warning">Warning</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-line vs-button-primary"&gt;Primary&lt;/button&gt;</code>
+      </div>
+
+      <h3>Gradient（漸層）</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-gradient vs-button-primary">Primary</button>
+        <button class="vs-button vs-button-gradient vs-button-success">Success</button>
+        <button class="vs-button vs-button-gradient vs-button-danger">Danger</button>
+        <button class="vs-button vs-button-gradient vs-button-warning">Warning</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-gradient vs-button-primary"&gt;Primary&lt;/button&gt;</code>
+      </div>
+
+      <h3>Relief（浮雕）</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-relief vs-button-primary">Primary</button>
+        <button class="vs-button vs-button-relief vs-button-success">Success</button>
+        <button class="vs-button vs-button-relief vs-button-danger">Danger</button>
+        <button class="vs-button vs-button-relief vs-button-dark">Dark</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-relief vs-button-primary"&gt;Primary&lt;/button&gt;</code>
+      </div>
+    </section>
+
+    <!-- Sizes -->
+    <section>
+      <h2>2. 尺寸變化</h2>
+      <div class="button-row">
+        <button class="vs-button vs-button-filled vs-button-primary vs-button-large">Large</button>
+        <button class="vs-button vs-button-filled vs-button-primary">Default</button>
+        <button class="vs-button vs-button-filled vs-button-primary vs-button-small">Small</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-filled vs-button-primary vs-button-large"&gt;Large&lt;/button&gt;</code>
+      </div>
+    </section>
+
+    <!-- Icons -->
+    <section>
+      <h2>3. 帶圖示的按鈕</h2>
+
+      <h3>圖示 + 文字</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-filled vs-button-primary">
+          <span class="vs-button__icon material-icons">home</span>
+          <span class="vs-button__content">首頁</span>
+        </button>
+        <button class="vs-button vs-button-filled vs-button-success">
+          <span class="vs-button__icon material-icons">check</span>
+          <span class="vs-button__content">確認</span>
+        </button>
+        <button class="vs-button vs-button-filled vs-button-danger">
+          <span class="vs-button__icon material-icons">delete</span>
+          <span class="vs-button__content">刪除</span>
+        </button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-filled vs-button-primary"&gt;<br>
+  &lt;span class="vs-button__icon material-icons"&gt;home&lt;/span&gt;<br>
+  &lt;span class="vs-button__content"&gt;首頁&lt;/span&gt;<br>
+&lt;/button&gt;</code>
+      </div>
+
+      <h3>僅圖示</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-filled vs-button-primary vs-button-icon-only">
+          <span class="material-icons">add</span>
+        </button>
+        <button class="vs-button vs-button-filled vs-button-success vs-button-icon-only">
+          <span class="material-icons">edit</span>
+        </button>
+        <button class="vs-button vs-button-filled vs-button-danger vs-button-icon-only">
+          <span class="material-icons">delete</span>
+        </button>
+        <button class="vs-button vs-button-border vs-button-primary vs-button-icon-only">
+          <span class="material-icons">search</span>
+        </button>
+      </div>
+
+      <h3>圓形圖示按鈕</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-filled vs-button-primary vs-button-radius">
+          <span class="material-icons">add</span>
+        </button>
+        <button class="vs-button vs-button-filled vs-button-success vs-button-radius">
+          <span class="material-icons">check</span>
+        </button>
+        <button class="vs-button vs-button-filled vs-button-danger vs-button-radius">
+          <span class="material-icons">close</span>
+        </button>
+        <button class="vs-button vs-button-border vs-button-primary vs-button-radius">
+          <span class="material-icons">favorite</span>
+        </button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-filled vs-button-primary vs-button-radius"&gt;<br>
+  &lt;span class="material-icons"&gt;add&lt;/span&gt;<br>
+&lt;/button&gt;</code>
+      </div>
+    </section>
+
+    <!-- Line Variations -->
+    <section>
+      <h2>4. 線條按鈕變化</h2>
+
+      <h3>線條起點</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-line vs-button-primary">Center（預設）</button>
+        <button class="vs-button vs-button-line vs-button-line-left vs-button-success">Left</button>
+        <button class="vs-button vs-button-line vs-button-line-right vs-button-danger">Right</button>
+      </div>
+
+      <h3>線條位置</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-line vs-button-primary">Bottom（預設）</button>
+        <button class="vs-button vs-button-line vs-button-line-top vs-button-success">Top</button>
+      </div>
+    </section>
+
+    <!-- States -->
+    <section>
+      <h2>5. 按鈕狀態</h2>
+
+      <h3>一般狀態</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-filled vs-button-primary">正常按鈕</button>
+        <button class="vs-button vs-button-filled vs-button-primary" disabled>停用按鈕</button>
+      </div>
+
+      <h3>載入狀態</h3>
+      <div class="button-row">
+        <button class="vs-button vs-button-filled vs-button-primary vs-button-loading">載入中</button>
+        <button class="vs-button vs-button-border vs-button-success vs-button-loading">載入中</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-filled vs-button-primary vs-button-loading"&gt;載入中&lt;/button&gt;</code>
+      </div>
+
+      <h3>動態切換載入狀態</h3>
+      <div class="button-row">
+        <button id="loadingBtn" class="vs-button vs-button-filled vs-button-primary">
+          點擊開始載入
+        </button>
+      </div>
+    </section>
+
+    <!-- Button Groups -->
+    <section>
+      <h2>6. 按鈕群組</h2>
+      <div class="demo-section">
+        <div class="vs-button-group">
+          <button class="vs-button vs-button-filled vs-button-primary">左</button>
+          <button class="vs-button vs-button-filled vs-button-primary">中</button>
+          <button class="vs-button vs-button-filled vs-button-primary">右</button>
+        </div>
+      </div>
+      <div class="code-block">
+        <code>&lt;div class="vs-button-group"&gt;<br>
+  &lt;button class="vs-button vs-button-filled vs-button-primary"&gt;左&lt;/button&gt;<br>
+  &lt;button class="vs-button vs-button-filled vs-button-primary"&gt;中&lt;/button&gt;<br>
+  &lt;button class="vs-button vs-button-filled vs-button-primary"&gt;右&lt;/button&gt;<br>
+&lt;/div&gt;</code>
+      </div>
+    </section>
+
+    <!-- Block Button -->
+    <section>
+      <h2>7. 全寬按鈕</h2>
+      <div class="demo-section">
+        <button class="vs-button vs-button-filled vs-button-primary vs-button-block">全寬按鈕</button>
+      </div>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-filled vs-button-primary vs-button-block"&gt;全寬按鈕&lt;/button&gt;</code>
+      </div>
+    </section>
+
+    <!-- Custom Colors -->
+    <section>
+      <h2>8. 自訂顏色</h2>
+      <div class="note">
+        <strong>提示：</strong>您可以通過修改 CSS 變數來自訂顏色主題
+      </div>
+      <div class="code-block">
+        <code>:root {<br>
+  --vs-primary: 25, 91, 255;<br>
+  --vs-success: 70, 201, 58;<br>
+  --vs-danger: 242, 19, 93;<br>
+  --vs-warning: 255, 186, 0;<br>
+  --vs-dark: 36, 33, 69;<br>
+  --vs-light: 240, 240, 240;<br>
+}</code>
+      </div>
+    </section>
+
+    <!-- JavaScript API -->
+    <section>
+      <h2>9. JavaScript API</h2>
+
+      <h3>自動初始化</h3>
+      <p>引入 <code>vs-button.js</code> 後，所有帶有 <code>.vs-button</code> class 的按鈕會自動初始化 ripple 效果。</p>
+
+      <h3>手動控制載入狀態</h3>
+      <div class="button-row">
+        <button id="manualLoadingBtn" class="vs-button vs-button-filled vs-button-success">
+          手動控制載入
+        </button>
+      </div>
+      <div class="code-block">
+        <code>// 設定載入狀態<br>
+VsButton.setLoading('#manualLoadingBtn', true);<br>
+<br>
+// 取消載入狀態<br>
+VsButton.setLoading('#manualLoadingBtn', false);</code>
+      </div>
+    </section>
+
+    <!-- Installation -->
+    <section>
+      <h2>10. 安裝與使用</h2>
+
+      <h3>引入檔案</h3>
+      <div class="code-block">
+        <code>&lt;!-- Material Icons（可選，如需使用圖示） --&gt;<br>
+&lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;<br>
+<br>
+&lt;!-- VsButton CSS（必需） --&gt;<br>
+&lt;link rel="stylesheet" href="vs-button.css"&gt;<br>
+<br>
+&lt;!-- VsButton JS（可選，用於 ripple 效果） --&gt;<br>
+&lt;script src="vs-button.js"&gt;&lt;/script&gt;</code>
+      </div>
+
+      <h3>基本使用</h3>
+      <div class="code-block">
+        <code>&lt;button class="vs-button vs-button-filled vs-button-primary"&gt;<br>
+  我的按鈕<br>
+&lt;/button&gt;</code>
+      </div>
+
+      <div class="note">
+        <strong>注意：</strong>
+        <ul style="margin-top: 10px; padding-left: 20px;">
+          <li>CSS 檔案是必需的</li>
+          <li>JS 檔案是可選的，用於增強 ripple 效果</li>
+          <li>Material Icons 僅在使用圖示時需要</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- VsButton JavaScript -->
+  <script src="vs-button.js"></script>
+
+  <!-- Demo Scripts -->
+  <script>
+    // Loading button demo
+    document.getElementById('loadingBtn').addEventListener('click', function() {
+      VsButton.setLoading(this, true);
+
+      setTimeout(() => {
+        VsButton.setLoading(this, false);
+      }, 3000);
+    });
+
+    // Manual loading button demo
+    let isLoading = false;
+    document.getElementById('manualLoadingBtn').addEventListener('click', function() {
+      isLoading = !isLoading;
+      VsButton.setLoading(this, isLoading);
+      this.textContent = isLoading ? '載入中...' : '手動控制載入';
+    });
+
+    // Log button clicks
+    document.querySelectorAll('.vs-button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        // Don't log for demo buttons
+        if (this.id === 'loadingBtn' || this.id === 'manualLoadingBtn') {
+          return;
+        }
+        console.log('Button clicked:', this.textContent || this.querySelector('.material-icons')?.textContent);
+      });
+    });
+  </script>
+</body>
+</html>

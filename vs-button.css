@@ -1,0 +1,652 @@
+/**
+ * VsButton Standalone CSS
+ * Version: 1.0.0
+ * A standalone CSS version of Vuesax Button component
+ * Can be used with plain HTML buttons without Vue.js
+ */
+
+/* ==================== CSS Variables ==================== */
+:root {
+  /* Colors */
+  --vs-primary: 25, 91, 255;
+  --vs-secondary: 155, 155, 155;
+  --vs-success: 70, 201, 58;
+  --vs-danger: 242, 19, 93;
+  --vs-warning: 255, 186, 0;
+  --vs-dark: 36, 33, 69;
+  --vs-light: 240, 240, 240;
+
+  /* Button settings */
+  --vs-radio: 6px;
+  --vs-disabled-opacity: 0.5;
+  --vs-transition: all 0.25s ease;
+}
+
+/* ==================== Base Button Styles ==================== */
+.vs-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: var(--vs-radio);
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.vs-button:focus {
+  outline: none;
+}
+
+.vs-button:disabled {
+  opacity: var(--vs-disabled-opacity);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ==================== Button Content ==================== */
+.vs-button__content {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: var(--vs-transition);
+}
+
+.vs-button__icon {
+  display: inline-flex;
+  font-size: 1.125em;
+  line-height: 1;
+}
+
+/* ==================== Ripple Effect Background ==================== */
+.vs-button__ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vs-button__ripple.active {
+  animation: ripple-animation 0.6s ease-out;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+/* ==================== Size Variants ==================== */
+.vs-button-large {
+  padding: 12px 20px;
+  font-size: 1.1em;
+}
+
+.vs-button-small {
+  padding: 7px 12px;
+  font-size: 0.85em;
+}
+
+/* ==================== Button Types ==================== */
+
+/* Filled Button */
+.vs-button-filled {
+  color: rgb(255, 255, 255);
+}
+
+.vs-button-filled:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.3);
+}
+
+.vs-button-filled:active {
+  transform: translateY(0);
+}
+
+/* Border Button */
+.vs-button-border {
+  padding: 9px 15px;
+  background: transparent;
+}
+
+.vs-button-border:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Flat Button */
+.vs-button-flat {
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+}
+
+.vs-button-flat:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Line Button */
+.vs-button-line {
+  padding: 9px 16px;
+  border-radius: 0;
+  background: transparent;
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  overflow: visible;
+}
+
+.vs-button-line::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.vs-button-line:hover::after {
+  width: 100%;
+}
+
+.vs-button-line:hover .vs-button__content {
+  transform: translateY(2px);
+}
+
+/* Line position variants */
+.vs-button-line-top {
+  border-width: 2px 0 0 0;
+}
+
+.vs-button-line-top::after {
+  bottom: auto;
+  top: -2px;
+}
+
+/* Line origin variants */
+.vs-button-line-left::after {
+  left: 0;
+  transform: none;
+}
+
+.vs-button-line-right::after {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+/* Gradient Button */
+.vs-button-gradient {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.vs-button-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -8px rgb(170, 170, 170);
+}
+
+.vs-button-gradient:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 0 -8px rgb(170, 170, 170);
+}
+
+/* Relief Button */
+.vs-button-relief {
+  color: rgb(255, 255, 255);
+}
+
+.vs-button-relief:active {
+  transform: translateY(3px);
+  box-shadow: none !important;
+}
+
+/* ==================== Color Variants - Primary ==================== */
+.vs-button-primary.vs-button-filled {
+  background: rgb(var(--vs-primary));
+}
+
+.vs-button-primary.vs-button-filled:hover {
+  box-shadow: 0 8px 25px -8px rgb(var(--vs-primary));
+}
+
+.vs-button-primary.vs-button-border {
+  border: 1px solid rgb(var(--vs-primary));
+  color: rgb(var(--vs-primary));
+}
+
+.vs-button-primary.vs-button-border:hover {
+  background: rgba(var(--vs-primary), 0.08);
+}
+
+.vs-button-primary.vs-button-flat {
+  color: rgb(var(--vs-primary));
+  border: none;
+}
+
+.vs-button-primary.vs-button-flat:hover {
+  background: rgba(var(--vs-primary), 0.08);
+}
+
+.vs-button-primary.vs-button-line {
+  color: rgb(var(--vs-primary));
+  border-color: rgba(var(--vs-primary), 0.2);
+}
+
+.vs-button-primary.vs-button-gradient {
+  background: linear-gradient(30deg, rgb(var(--vs-primary)) 0%, rgba(var(--vs-primary), 0.6) 100%);
+}
+
+.vs-button-primary.vs-button-relief {
+  background: rgb(var(--vs-primary));
+  box-shadow: 0 3px 0 0 rgba(var(--vs-primary), 0.5);
+}
+
+/* ==================== Color Variants - Success ==================== */
+.vs-button-success.vs-button-filled {
+  background: rgb(var(--vs-success));
+}
+
+.vs-button-success.vs-button-filled:hover {
+  box-shadow: 0 8px 25px -8px rgb(var(--vs-success));
+}
+
+.vs-button-success.vs-button-border {
+  border: 1px solid rgb(var(--vs-success));
+  color: rgb(var(--vs-success));
+}
+
+.vs-button-success.vs-button-border:hover {
+  background: rgba(var(--vs-success), 0.08);
+}
+
+.vs-button-success.vs-button-flat {
+  color: rgb(var(--vs-success));
+  border: none;
+}
+
+.vs-button-success.vs-button-flat:hover {
+  background: rgba(var(--vs-success), 0.08);
+}
+
+.vs-button-success.vs-button-line {
+  color: rgb(var(--vs-success));
+  border-color: rgba(var(--vs-success), 0.2);
+}
+
+.vs-button-success.vs-button-gradient {
+  background: linear-gradient(30deg, rgb(var(--vs-success)) 0%, rgba(var(--vs-success), 0.6) 100%);
+}
+
+.vs-button-success.vs-button-relief {
+  background: rgb(var(--vs-success));
+  box-shadow: 0 3px 0 0 rgba(var(--vs-success), 0.5);
+}
+
+/* ==================== Color Variants - Danger ==================== */
+.vs-button-danger.vs-button-filled {
+  background: rgb(var(--vs-danger));
+}
+
+.vs-button-danger.vs-button-filled:hover {
+  box-shadow: 0 8px 25px -8px rgb(var(--vs-danger));
+}
+
+.vs-button-danger.vs-button-border {
+  border: 1px solid rgb(var(--vs-danger));
+  color: rgb(var(--vs-danger));
+}
+
+.vs-button-danger.vs-button-border:hover {
+  background: rgba(var(--vs-danger), 0.08);
+}
+
+.vs-button-danger.vs-button-flat {
+  color: rgb(var(--vs-danger));
+  border: none;
+}
+
+.vs-button-danger.vs-button-flat:hover {
+  background: rgba(var(--vs-danger), 0.08);
+}
+
+.vs-button-danger.vs-button-line {
+  color: rgb(var(--vs-danger));
+  border-color: rgba(var(--vs-danger), 0.2);
+}
+
+.vs-button-danger.vs-button-gradient {
+  background: linear-gradient(30deg, rgb(var(--vs-danger)) 0%, rgba(var(--vs-danger), 0.6) 100%);
+}
+
+.vs-button-danger.vs-button-relief {
+  background: rgb(var(--vs-danger));
+  box-shadow: 0 3px 0 0 rgba(var(--vs-danger), 0.5);
+}
+
+/* ==================== Color Variants - Warning ==================== */
+.vs-button-warning.vs-button-filled {
+  background: rgb(var(--vs-warning));
+}
+
+.vs-button-warning.vs-button-filled:hover {
+  box-shadow: 0 8px 25px -8px rgb(var(--vs-warning));
+}
+
+.vs-button-warning.vs-button-border {
+  border: 1px solid rgb(var(--vs-warning));
+  color: rgb(var(--vs-warning));
+}
+
+.vs-button-warning.vs-button-border:hover {
+  background: rgba(var(--vs-warning), 0.08);
+}
+
+.vs-button-warning.vs-button-flat {
+  color: rgb(var(--vs-warning));
+  border: none;
+}
+
+.vs-button-warning.vs-button-flat:hover {
+  background: rgba(var(--vs-warning), 0.08);
+}
+
+.vs-button-warning.vs-button-line {
+  color: rgb(var(--vs-warning));
+  border-color: rgba(var(--vs-warning), 0.2);
+}
+
+.vs-button-warning.vs-button-gradient {
+  background: linear-gradient(30deg, rgb(var(--vs-warning)) 0%, rgba(var(--vs-warning), 0.5) 100%);
+}
+
+.vs-button-warning.vs-button-relief {
+  background: rgb(var(--vs-warning));
+  box-shadow: 0 3px 0 0 rgba(var(--vs-warning), 0.5);
+}
+
+/* ==================== Color Variants - Dark ==================== */
+.vs-button-dark.vs-button-filled {
+  background: rgb(var(--vs-dark));
+}
+
+.vs-button-dark.vs-button-filled:hover {
+  box-shadow: 0 8px 25px -8px rgb(var(--vs-dark));
+}
+
+.vs-button-dark.vs-button-border {
+  border: 1px solid rgb(var(--vs-dark));
+  color: rgb(var(--vs-dark));
+}
+
+.vs-button-dark.vs-button-border:hover {
+  background: rgba(var(--vs-dark), 0.08);
+}
+
+.vs-button-dark.vs-button-flat {
+  color: rgb(var(--vs-dark));
+  border: none;
+}
+
+.vs-button-dark.vs-button-flat:hover {
+  background: rgba(var(--vs-dark), 0.08);
+}
+
+.vs-button-dark.vs-button-line {
+  color: rgb(var(--vs-dark));
+  border-color: rgba(var(--vs-dark), 0.2);
+}
+
+.vs-button-dark.vs-button-gradient {
+  background: linear-gradient(30deg, rgb(var(--vs-dark)) 0%, rgba(var(--vs-dark), 0.5) 100%);
+}
+
+.vs-button-dark.vs-button-relief {
+  background: rgb(var(--vs-dark));
+  box-shadow: 0 -3px 0 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+/* ==================== Color Variants - Light ==================== */
+.vs-button-light.vs-button-filled {
+  background: rgb(var(--vs-light));
+  color: rgb(50, 50, 50);
+}
+
+.vs-button-light.vs-button-filled:hover {
+  box-shadow: 0 8px 25px -8px rgb(var(--vs-light));
+}
+
+.vs-button-light.vs-button-border {
+  border: 1px solid rgb(var(--vs-light));
+  color: rgb(var(--vs-light));
+}
+
+.vs-button-light.vs-button-border:hover {
+  background: rgba(var(--vs-light), 0.08);
+}
+
+.vs-button-light.vs-button-flat {
+  color: rgb(var(--vs-light));
+  border: none;
+}
+
+.vs-button-light.vs-button-flat:hover {
+  background: rgba(var(--vs-light), 0.08);
+}
+
+.vs-button-light.vs-button-line {
+  color: rgb(var(--vs-light));
+  border-color: rgba(var(--vs-light), 0.2);
+}
+
+.vs-button-light.vs-button-gradient {
+  background: linear-gradient(30deg, rgb(var(--vs-light)) 0%, rgba(var(--vs-light), 0.6) 100%);
+  color: rgb(50, 50, 50);
+}
+
+.vs-button-light.vs-button-relief {
+  background: rgb(var(--vs-light));
+  color: rgb(50, 50, 50);
+  box-shadow: 0 3px 0 0 rgba(var(--vs-light), 0.5);
+}
+
+/* ==================== Color Variants - Secondary ==================== */
+.vs-button-secondary.vs-button-filled {
+  background: rgb(var(--vs-secondary));
+}
+
+.vs-button-secondary.vs-button-filled:hover {
+  box-shadow: 0 8px 25px -8px rgb(var(--vs-secondary));
+}
+
+.vs-button-secondary.vs-button-border {
+  border: 1px solid rgb(var(--vs-secondary));
+  color: rgb(var(--vs-secondary));
+}
+
+.vs-button-secondary.vs-button-border:hover {
+  background: rgba(var(--vs-secondary), 0.08);
+}
+
+.vs-button-secondary.vs-button-flat {
+  color: rgb(var(--vs-secondary));
+  border: none;
+}
+
+.vs-button-secondary.vs-button-flat:hover {
+  background: rgba(var(--vs-secondary), 0.08);
+}
+
+.vs-button-secondary.vs-button-line {
+  color: rgb(var(--vs-secondary));
+  border-color: rgba(var(--vs-secondary), 0.2);
+}
+
+.vs-button-secondary.vs-button-gradient {
+  background: linear-gradient(30deg, rgb(var(--vs-secondary)) 0%, rgba(var(--vs-secondary), 0.5) 100%);
+}
+
+.vs-button-secondary.vs-button-relief {
+  background: rgb(var(--vs-secondary));
+  box-shadow: 0 3px 0 0 rgba(var(--vs-secondary), 0.5);
+}
+
+/* ==================== Special Modifiers ==================== */
+
+/* Radius (Circle) */
+.vs-button-radius {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.vs-button-radius.vs-button-large {
+  width: 48px;
+  height: 48px;
+}
+
+.vs-button-radius.vs-button-small {
+  width: 32px;
+  height: 32px;
+}
+
+/* Icon Only */
+.vs-button-icon-only {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.vs-button-icon-only.vs-button-large {
+  width: 48px;
+  height: 48px;
+}
+
+.vs-button-icon-only.vs-button-small {
+  width: 32px;
+  height: 32px;
+  font-size: 0.9em;
+}
+
+/* Block (Full Width) */
+.vs-button-block {
+  display: flex;
+  width: 100%;
+}
+
+/* Loading State */
+.vs-button-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.vs-button-loading .vs-button__content {
+  visibility: hidden;
+}
+
+.vs-button-loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-right-color: transparent;
+  animation: vs-button-spin 0.6s linear infinite;
+}
+
+@keyframes vs-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== Button Groups ==================== */
+.vs-button-group {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.vs-button-group .vs-button {
+  border-radius: 0;
+  margin: 0;
+}
+
+.vs-button-group .vs-button:first-child {
+  border-top-left-radius: var(--vs-radio);
+  border-bottom-left-radius: var(--vs-radio);
+}
+
+.vs-button-group .vs-button:last-child {
+  border-top-right-radius: var(--vs-radio);
+  border-bottom-right-radius: var(--vs-radio);
+}
+
+.vs-button-group .vs-button:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==================== Utility Classes ==================== */
+.vs-button-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vs-button-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.vs-button-shadow:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ==================== Responsive Helpers ==================== */
+@media (max-width: 768px) {
+  .vs-button-mobile-block {
+    display: flex;
+    width: 100%;
+  }
+
+  .vs-button-mobile-small {
+    padding: 7px 12px;
+    font-size: 0.85em;
+  }
+}
+
+/* ==================== Dark Mode Support ==================== */
+@media (prefers-color-scheme: dark) {
+  .vs-button-border,
+  .vs-button-flat {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .vs-button-border:hover,
+  .vs-button-flat:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
