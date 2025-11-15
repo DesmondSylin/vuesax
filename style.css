@@ -1,0 +1,567 @@
+/**
+ * Vuesax Theme CSS3 Stylesheet
+ *
+ * This file contains the complete Vuesax theme color system extracted
+ * for use in regular HTML websites using modern CSS3 custom properties.
+ *
+ * Usage:
+ * - Include this file in your HTML: <link rel="stylesheet" href="style.css">
+ * - Use CSS variables: color: rgb(var(--vs-primary));
+ * - Use utility classes: <div class="vs-bg-primary">...</div>
+ */
+
+/* ============================================
+   CSS Custom Properties (CSS Variables)
+   ============================================ */
+
+:root {
+  /* Core Theme Colors (RGB values for alpha support) */
+  --vs-primary: 31, 116, 255;      /* Blue */
+  --vs-secondary: 121, 49, 177;    /* Purple */
+  --vs-danger: 255, 71, 87;        /* Red */
+  --vs-success: 70, 201, 58;       /* Green */
+  --vs-warning: 255, 186, 0;       /* Yellow/Orange */
+  --vs-dark: 30, 30, 30;           /* Almost Black */
+  --vs-light: 245, 245, 245;       /* Light Gray */
+
+  /* Typography */
+  --vs-font-family: Arial, Helvetica, sans-serif;
+  --vs-font-size: 1rem;
+
+  /* Spacing & Layout */
+  --vs-border-radius: 5px;
+  --vs-border: 1px solid rgba(0, 0, 0, 0.1);
+  --vs-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
+
+  /* Transitions */
+  --vs-transition-duration: 0.25s;
+  --vs-transition-timing: ease;
+  --vs-transition: all 0.25s ease;
+
+  /* States */
+  --vs-disabled-opacity: 0.5;
+
+  /* Background */
+  --vs-background: 255, 255, 255;
+  --vs-label-color: rgba(0, 0, 0, 0.6);
+}
+
+
+/* ============================================
+   Background Color Utilities
+   ============================================ */
+
+.vs-bg-primary {
+  background-color: rgb(var(--vs-primary)) !important;
+  color: #ffffff;
+}
+
+.vs-bg-secondary {
+  background-color: rgb(var(--vs-secondary)) !important;
+  color: #ffffff;
+}
+
+.vs-bg-danger {
+  background-color: rgb(var(--vs-danger)) !important;
+  color: #ffffff;
+}
+
+.vs-bg-success {
+  background-color: rgb(var(--vs-success)) !important;
+  color: #ffffff;
+}
+
+.vs-bg-warning {
+  background-color: rgb(var(--vs-warning)) !important;
+  color: #ffffff;
+}
+
+.vs-bg-dark {
+  background-color: rgb(var(--vs-dark)) !important;
+  color: #ffffff;
+}
+
+.vs-bg-light {
+  background-color: rgb(var(--vs-light)) !important;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+
+/* ============================================
+   Background Color Utilities with Opacity
+   ============================================ */
+
+.vs-bg-primary-10 {
+  background-color: rgba(var(--vs-primary), 0.1) !important;
+}
+
+.vs-bg-primary-20 {
+  background-color: rgba(var(--vs-primary), 0.2) !important;
+}
+
+.vs-bg-primary-50 {
+  background-color: rgba(var(--vs-primary), 0.5) !important;
+}
+
+.vs-bg-secondary-10 {
+  background-color: rgba(var(--vs-secondary), 0.1) !important;
+}
+
+.vs-bg-secondary-20 {
+  background-color: rgba(var(--vs-secondary), 0.2) !important;
+}
+
+.vs-bg-secondary-50 {
+  background-color: rgba(var(--vs-secondary), 0.5) !important;
+}
+
+.vs-bg-danger-10 {
+  background-color: rgba(var(--vs-danger), 0.1) !important;
+}
+
+.vs-bg-danger-20 {
+  background-color: rgba(var(--vs-danger), 0.2) !important;
+}
+
+.vs-bg-danger-50 {
+  background-color: rgba(var(--vs-danger), 0.5) !important;
+}
+
+.vs-bg-success-10 {
+  background-color: rgba(var(--vs-success), 0.1) !important;
+}
+
+.vs-bg-success-20 {
+  background-color: rgba(var(--vs-success), 0.2) !important;
+}
+
+.vs-bg-success-50 {
+  background-color: rgba(var(--vs-success), 0.5) !important;
+}
+
+.vs-bg-warning-10 {
+  background-color: rgba(var(--vs-warning), 0.1) !important;
+}
+
+.vs-bg-warning-20 {
+  background-color: rgba(var(--vs-warning), 0.2) !important;
+}
+
+.vs-bg-warning-50 {
+  background-color: rgba(var(--vs-warning), 0.5) !important;
+}
+
+.vs-bg-dark-10 {
+  background-color: rgba(var(--vs-dark), 0.1) !important;
+}
+
+.vs-bg-dark-20 {
+  background-color: rgba(var(--vs-dark), 0.2) !important;
+}
+
+.vs-bg-dark-50 {
+  background-color: rgba(var(--vs-dark), 0.5) !important;
+}
+
+.vs-bg-light-10 {
+  background-color: rgba(var(--vs-light), 0.1) !important;
+}
+
+.vs-bg-light-20 {
+  background-color: rgba(var(--vs-light), 0.2) !important;
+}
+
+.vs-bg-light-50 {
+  background-color: rgba(var(--vs-light), 0.5) !important;
+}
+
+
+/* ============================================
+   Text Color Utilities
+   ============================================ */
+
+.vs-text-primary {
+  color: rgb(var(--vs-primary)) !important;
+}
+
+.vs-text-secondary {
+  color: rgb(var(--vs-secondary)) !important;
+}
+
+.vs-text-danger {
+  color: rgb(var(--vs-danger)) !important;
+}
+
+.vs-text-success {
+  color: rgb(var(--vs-success)) !important;
+}
+
+.vs-text-warning {
+  color: rgb(var(--vs-warning)) !important;
+}
+
+.vs-text-dark {
+  color: rgb(var(--vs-dark)) !important;
+}
+
+.vs-text-light {
+  color: rgb(var(--vs-light)) !important;
+}
+
+
+/* ============================================
+   Border Color Utilities
+   ============================================ */
+
+.vs-border-primary {
+  border: 1px solid rgb(var(--vs-primary)) !important;
+}
+
+.vs-border-secondary {
+  border: 1px solid rgb(var(--vs-secondary)) !important;
+}
+
+.vs-border-danger {
+  border: 1px solid rgb(var(--vs-danger)) !important;
+}
+
+.vs-border-success {
+  border: 1px solid rgb(var(--vs-success)) !important;
+}
+
+.vs-border-warning {
+  border: 1px solid rgb(var(--vs-warning)) !important;
+}
+
+.vs-border-dark {
+  border: 1px solid rgb(var(--vs-dark)) !important;
+}
+
+.vs-border-light {
+  border: 1px solid rgb(var(--vs-light)) !important;
+}
+
+
+/* ============================================
+   Button Utilities
+   ============================================ */
+
+.vs-button {
+  padding: 10px 20px;
+  border-radius: var(--vs-border-radius);
+  border: none;
+  cursor: pointer;
+  font-family: var(--vs-font-family);
+  font-size: var(--vs-font-size);
+  transition: var(--vs-transition);
+  outline: none;
+}
+
+.vs-button:disabled {
+  opacity: var(--vs-disabled-opacity);
+  cursor: default;
+}
+
+.vs-button-primary {
+  background-color: rgb(var(--vs-primary));
+  color: #ffffff;
+}
+
+.vs-button-primary:hover:not(:disabled) {
+  box-shadow: 0px 8px 25px -8px rgba(var(--vs-primary), 0.6);
+  transform: translateY(-2px);
+}
+
+.vs-button-secondary {
+  background-color: rgb(var(--vs-secondary));
+  color: #ffffff;
+}
+
+.vs-button-secondary:hover:not(:disabled) {
+  box-shadow: 0px 8px 25px -8px rgba(var(--vs-secondary), 0.6);
+  transform: translateY(-2px);
+}
+
+.vs-button-danger {
+  background-color: rgb(var(--vs-danger));
+  color: #ffffff;
+}
+
+.vs-button-danger:hover:not(:disabled) {
+  box-shadow: 0px 8px 25px -8px rgba(var(--vs-danger), 0.6);
+  transform: translateY(-2px);
+}
+
+.vs-button-success {
+  background-color: rgb(var(--vs-success));
+  color: #ffffff;
+}
+
+.vs-button-success:hover:not(:disabled) {
+  box-shadow: 0px 8px 25px -8px rgba(var(--vs-success), 0.6);
+  transform: translateY(-2px);
+}
+
+.vs-button-warning {
+  background-color: rgb(var(--vs-warning));
+  color: #ffffff;
+}
+
+.vs-button-warning:hover:not(:disabled) {
+  box-shadow: 0px 8px 25px -8px rgba(var(--vs-warning), 0.6);
+  transform: translateY(-2px);
+}
+
+.vs-button-dark {
+  background-color: rgb(var(--vs-dark));
+  color: #ffffff;
+}
+
+.vs-button-dark:hover:not(:disabled) {
+  box-shadow: 0px 8px 25px -8px rgba(var(--vs-dark), 0.6);
+  transform: translateY(-2px);
+}
+
+.vs-button-light {
+  background-color: rgb(var(--vs-light));
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.vs-button-light:hover:not(:disabled) {
+  box-shadow: 0px 8px 25px -8px rgba(var(--vs-light), 0.6);
+  transform: translateY(-2px);
+}
+
+
+/* ============================================
+   Alert/Notification Utilities
+   ============================================ */
+
+.vs-alert {
+  padding: 15px 20px;
+  border-radius: var(--vs-border-radius);
+  margin: 10px 0;
+  font-family: var(--vs-font-family);
+}
+
+.vs-alert-primary {
+  background-color: rgba(var(--vs-primary), 0.1);
+  border-left: 4px solid rgb(var(--vs-primary));
+  color: rgb(var(--vs-primary));
+}
+
+.vs-alert-secondary {
+  background-color: rgba(var(--vs-secondary), 0.1);
+  border-left: 4px solid rgb(var(--vs-secondary));
+  color: rgb(var(--vs-secondary));
+}
+
+.vs-alert-danger {
+  background-color: rgba(var(--vs-danger), 0.1);
+  border-left: 4px solid rgb(var(--vs-danger));
+  color: rgb(var(--vs-danger));
+}
+
+.vs-alert-success {
+  background-color: rgba(var(--vs-success), 0.1);
+  border-left: 4px solid rgb(var(--vs-success));
+  color: rgb(var(--vs-success));
+}
+
+.vs-alert-warning {
+  background-color: rgba(var(--vs-warning), 0.1);
+  border-left: 4px solid rgb(var(--vs-warning));
+  color: rgb(var(--vs-warning));
+}
+
+.vs-alert-dark {
+  background-color: rgba(var(--vs-dark), 0.1);
+  border-left: 4px solid rgb(var(--vs-dark));
+  color: rgb(var(--vs-dark));
+}
+
+.vs-alert-light {
+  background-color: rgba(var(--vs-light), 0.1);
+  border-left: 4px solid rgb(var(--vs-light));
+  color: rgba(0, 0, 0, 0.87);
+}
+
+
+/* ============================================
+   Badge Utilities
+   ============================================ */
+
+.vs-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 12px;
+  font-family: var(--vs-font-family);
+}
+
+.vs-badge-primary {
+  background-color: rgb(var(--vs-primary));
+  color: #ffffff;
+}
+
+.vs-badge-secondary {
+  background-color: rgb(var(--vs-secondary));
+  color: #ffffff;
+}
+
+.vs-badge-danger {
+  background-color: rgb(var(--vs-danger));
+  color: #ffffff;
+}
+
+.vs-badge-success {
+  background-color: rgb(var(--vs-success));
+  color: #ffffff;
+}
+
+.vs-badge-warning {
+  background-color: rgb(var(--vs-warning));
+  color: #ffffff;
+}
+
+.vs-badge-dark {
+  background-color: rgb(var(--vs-dark));
+  color: #ffffff;
+}
+
+.vs-badge-light {
+  background-color: rgb(var(--vs-light));
+  color: rgba(0, 0, 0, 0.87);
+}
+
+
+/* ============================================
+   Shadow Utilities
+   ============================================ */
+
+.vs-shadow {
+  box-shadow: var(--vs-box-shadow);
+}
+
+.vs-shadow-primary {
+  box-shadow: 0px 5px 20px 0px rgba(var(--vs-primary), 0.3);
+}
+
+.vs-shadow-secondary {
+  box-shadow: 0px 5px 20px 0px rgba(var(--vs-secondary), 0.3);
+}
+
+.vs-shadow-danger {
+  box-shadow: 0px 5px 20px 0px rgba(var(--vs-danger), 0.3);
+}
+
+.vs-shadow-success {
+  box-shadow: 0px 5px 20px 0px rgba(var(--vs-success), 0.3);
+}
+
+.vs-shadow-warning {
+  box-shadow: 0px 5px 20px 0px rgba(var(--vs-warning), 0.3);
+}
+
+.vs-shadow-dark {
+  box-shadow: 0px 5px 20px 0px rgba(var(--vs-dark), 0.3);
+}
+
+
+/* ============================================
+   Hover Effects
+   ============================================ */
+
+.vs-hover-primary:hover {
+  background-color: rgba(var(--vs-primary), 0.1);
+  transition: var(--vs-transition);
+}
+
+.vs-hover-secondary:hover {
+  background-color: rgba(var(--vs-secondary), 0.1);
+  transition: var(--vs-transition);
+}
+
+.vs-hover-danger:hover {
+  background-color: rgba(var(--vs-danger), 0.1);
+  transition: var(--vs-transition);
+}
+
+.vs-hover-success:hover {
+  background-color: rgba(var(--vs-success), 0.1);
+  transition: var(--vs-transition);
+}
+
+.vs-hover-warning:hover {
+  background-color: rgba(var(--vs-warning), 0.1);
+  transition: var(--vs-transition);
+}
+
+.vs-hover-dark:hover {
+  background-color: rgba(var(--vs-dark), 0.1);
+  transition: var(--vs-transition);
+}
+
+.vs-hover-light:hover {
+  background-color: rgba(var(--vs-light), 0.5);
+  transition: var(--vs-transition);
+}
+
+
+/* ============================================
+   Gradient Utilities
+   ============================================ */
+
+.vs-gradient-primary {
+  background: linear-gradient(135deg, rgba(var(--vs-primary), 1) 0%, rgba(var(--vs-primary), 0.7) 100%);
+  color: #ffffff;
+}
+
+.vs-gradient-secondary {
+  background: linear-gradient(135deg, rgba(var(--vs-secondary), 1) 0%, rgba(var(--vs-secondary), 0.7) 100%);
+  color: #ffffff;
+}
+
+.vs-gradient-danger {
+  background: linear-gradient(135deg, rgba(var(--vs-danger), 1) 0%, rgba(var(--vs-danger), 0.7) 100%);
+  color: #ffffff;
+}
+
+.vs-gradient-success {
+  background: linear-gradient(135deg, rgba(var(--vs-success), 1) 0%, rgba(var(--vs-success), 0.7) 100%);
+  color: #ffffff;
+}
+
+.vs-gradient-warning {
+  background: linear-gradient(135deg, rgba(var(--vs-warning), 1) 0%, rgba(var(--vs-warning), 0.7) 100%);
+  color: #ffffff;
+}
+
+.vs-gradient-dark {
+  background: linear-gradient(135deg, rgba(var(--vs-dark), 1) 0%, rgba(var(--vs-dark), 0.7) 100%);
+  color: #ffffff;
+}
+
+
+/* ============================================
+   Additional Utilities
+   ============================================ */
+
+.vs-rounded {
+  border-radius: var(--vs-border-radius);
+}
+
+.vs-rounded-full {
+  border-radius: 9999px;
+}
+
+.vs-disabled {
+  opacity: var(--vs-disabled-opacity);
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.vs-transition {
+  transition: var(--vs-transition);
+}
