@@ -17,6 +17,7 @@
     "plugin:vue/strongly-recommended"
   ],
   "rules": {
+    "semi": ["error", "always"],
     "arrow-parens": 0,
     "generator-star-spacing": "off",
     "indent": "off",
